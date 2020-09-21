@@ -87,7 +87,7 @@ class TicTacToe
   end
   
   def full? 
-    @board.any? {|n| n == " " }
+    !@board.any? {|n| n == " " }
       # return false
       # else
       #   return true
