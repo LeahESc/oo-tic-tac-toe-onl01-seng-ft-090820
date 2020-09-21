@@ -21,28 +21,34 @@ class TicTacToe
     input.to_i - 1 
   end
   
-  def move(index, token = X)
+  def move(index, token = "X")
     @board[index] = token
   end
   
   def position_taken?(index)
-    if @board[index] == "X" || @board[index] == "O"
-      true 
-    else 
-      false
-    end
+    # if @board[index] == "X" || @board[index] == "O" 
+     @board[index] == "X" || @board[index] == "O" 
+    # !(@board[index].nil? || @board[index] == " ") 
+   
+    # ?
+    #   true 
+    # else 
+    #   false
+    # end
   end 
   
     def valid_move?(position)
-      if position.between?(0,8) && !position_taken?(position) 
-        return true
-      else
-       return false
-      end 
+      # if 
+        position.between?(0,8) && !position_taken?(position) 
+      #   true
+      # else
+      # false
+      # end 
     end
     
     def turn_count
-     @board.count{|token| token == "X" || token == "O"}
+    @board.count{|token| token == "X" || token == "O"}
+    # @board.count{|token| token !=" "} 
     # @board.size{|token| token == "X" || token == "O"}
   end
   
@@ -62,18 +68,22 @@ class TicTacToe
         puts "Move is invalid. Please enter 1-9"
         turn
       end
+     
   end
   
   def won?
-    WIN_COMBINATIONS.each do |combo| 
-      if @board[combo[0]] == "X" && @board[combo[1]] == "X" && @board[combo[2]] == "X"
-        return combo
-      elsif 
-      @board[combo[0]] == "O" && @board[combo[1]] == "O" && @board[combo[2]] == "O"
-      return combo
-      end
-    end
-    false
+    WIN_COMBINATIONS.find {|combo|@board[combo[0]] == @board[combo[1]] && @board[combo[0]]==  @board[combo[2]]  && @board[combo[0]] != " " }
+      #   
+    # WIN_COMBINATIONS.each do |combo| 
+      # if @board[combo[0]] == @board[combo[1]] && @board[combo[0]]==  @board[combo[2]]  &&
+      #   @board[combo[0]] != " "
+      #   return combo
+      # elsif 
+      # @board[combo[0]] == "O" && @board[combo[1]] == "O" && @board[combo[2]] == "O"
+      # return combo
+      # end
+    # end
+    # false
   end
   
   def full? 
