@@ -103,23 +103,24 @@ class TicTacToe
   end
      
   def over? 
-    if won? || draw? 
-      return true
-    elsif !won? || !draw?
-      false
-    end
+     won? || draw? 
+    #   return true
+    # elsif !won? || !draw?
+    #   false
+    # end
   end
   
   def winner 
-    WIN_COMBINATIONS.each do |combo| 
-      if @board[combo[0]] == "X" && @board[combo[1]] == "X" && @board[combo[2]] == "X"
-        return "X"
-      elsif  @board[combo[0]] == "O" && @board[combo[1]] == "O" && @board[combo[2]] == "O"
-      return "O"
-      elsif draw? || !won?
-      return nil
-      end
-    end
+    if !won?
+    # WIN_COMBINATIONS.each do |combo| 
+    #   if @board[combo[0]] == "X" && @board[combo[1]] == "X" && @board[combo[2]] == "X"
+    #     return "X"
+    #   elsif  @board[combo[0]] == "O" && @board[combo[1]] == "O" && @board[combo[2]] == "O"
+    #   return "O"
+    #   elsif draw? || !won?
+    #   return nil
+    #   end
+    # end
   end
   
   def play 
