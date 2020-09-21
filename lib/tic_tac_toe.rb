@@ -111,7 +111,9 @@ class TicTacToe
   end
   
   def winner 
-    @board[won?[0]]
+    w = won?
+    @board[w[0]]
+    
     # WIN_COMBINATIONS.each do |combo| 
     #   if @board[combo[0]] == "X" && @board[combo[1]] == "X" && @board[combo[2]] == "X"
     #     return "X"
