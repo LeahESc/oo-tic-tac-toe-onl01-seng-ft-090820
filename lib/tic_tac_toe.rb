@@ -87,11 +87,11 @@ class TicTacToe
   end
   
   def full? 
-   if @board.any? {|n| n == " " }
+    @board.any? {|n| n == " " }
       # return false
       # else
       #   return true
-      end
+      # end
     end
  
   def draw? 
